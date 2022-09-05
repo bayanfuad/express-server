@@ -2,12 +2,12 @@
 const express = require('express');
 const app=express();
 
-app.get('/',(req,res)=>res.send('Hello World'));
+app.get('/',(req,res)=>res.status(200).send('Hello World'));
 
 app.post('/person',(req,res)=>{
     const {name,age,gender}=req.query;
     let newAge=parseInt(age)+5;
-    res.send({name:name , gender:gender , age:`after 5 years you will be ${newAge}`})
+    res.status(201).send({name:name , gender:gender , age:`after 5 years you will be ${newAge}`})
 })
 
 function start (port){

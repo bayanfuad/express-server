@@ -5,10 +5,12 @@ const request = supertest(app);
 describe('testing API server', ()=>{
     it ('testing /', async()=> {
         const response = await request.get('/');
-        expect(response.text).toEqual('Hello World');
+        expect(response.status).toEqual(200);
+        // expect(response.text).toEqual('Hello World');
     })
     it('testing /person ', async()=>{
         const response = await request.post('/person');
-        expect(typeof response.body).toEqual('object');
+        expect(response.status).toEqual(201);
+        // expect(typeof response.body).toEqual('object');
     })
 })
